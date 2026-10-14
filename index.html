@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业信息对接 · 海智园区</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand-lockup">
+          <div class="brand-mark">海智</div>
+          <div>
+            <div class="brand-name">海智园区</div>
+            <div class="brand-caption">运营管理平台</div>
+          </div>
+        </div>
+
+        <div class="workspace-switcher">
+          <span class="workspace-dot"></span>
+          <span>园区运营中心</span>
+          <i class="chevron" data-lucide="chevron-down" aria-hidden="true"></i>
+        </div>
+
+        <nav class="nav-groups">
+          <div class="nav-label">业务管理</div>
+          <a class="nav-item" href="#">
+            <span class="nav-icon"><i data-lucide="layout-dashboard" aria-hidden="true"></i></span>
+            <span>工作台</span>
+          </a>
+          <a class="nav-item active" href="#">
+            <span class="nav-icon"><i data-lucide="building-2" aria-hidden="true"></i></span>
+            <span>企业管理</span>
+            <span class="nav-count">3</span>
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon"><i data-lucide="handshake" aria-hidden="true"></i></span>
+            <span>企业服务</span>
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon"><i data-lucide="file-text" aria-hidden="true"></i></span>
+            <span>租赁运营</span>
+          </a>
+
+          <div class="nav-label second">数据与配置</div>
+          <a class="nav-item" href="#">
+            <span class="nav-icon"><i data-lucide="database" aria-hidden="true"></i></span>
+            <span>数据中心</span>
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></span>
+            <span>统计报表</span>
+          </a>
+          <a class="nav-item" href="#">
+            <span class="nav-icon"><i data-lucide="settings" aria-hidden="true"></i></span>
+            <span>系统设置</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="help-card">
+            <div class="help-title">本次查询范围</div>
+            <div class="help-copy">基础档案、营收税收、知识产权、融资和企业图谱</div>
+            <span class="text-button">5 类内容 · 9 个接口</span>
+          </div>
+          <div class="user-card">
+            <div class="avatar">林</div>
+            <div class="user-meta">
+              <strong>林晓敏</strong>
+              <span>园区运营管理员</span>
+            </div>
+            <i class="more" data-lucide="ellipsis" aria-hidden="true"></i>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumbs">
+            <span>企业管理</span>
+            <span class="breadcrumb-separator">/</span>
+            <strong>企业信息对接</strong>
+          </div>
+          <div class="topbar-actions">
+            <span class="demo-badge">样式原型 · 示例数据</span>
+            <div class="topbar-divider"></div>
+            <span class="topbar-date">2026年10月14日 星期三</span>
+          </div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="page-heading">
+            <div>
+              <div class="eyebrow">园区企业管理</div>
+              <h1>企业信息对接</h1>
+              <p>从企业列表查询企查查信息，按类别查看全部返回内容。</p>
+            </div>
+            <div class="heading-actions">
+              <button class="button secondary" id="exportButton" type="button"><i data-lucide="download" aria-hidden="true"></i> 导出查询记录</button>
+              <button class="button primary" id="batchButton" type="button"><i data-lucide="search" aria-hidden="true"></i> 查询所选企业</button>
+            </div>
+          </section>
+
+          <section class="metric-grid" aria-label="企业信息概览">
+            <div class="metric-card">
+              <div class="metric-topline"><span>企业总数</span><span class="metric-mark blue"><i data-lucide="building-2" aria-hidden="true"></i></span></div>
+              <div class="metric-value" id="totalMetric">3</div>
+              <div class="metric-foot">本次展示的示例企业</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-topline"><span>已完成查询</span><span class="metric-mark green"><i data-lucide="circle-check" aria-hidden="true"></i></span></div>
+              <div class="metric-value" id="doneMetric">1</div>
+              <div class="metric-foot">可查看已查询的企业详情</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-topline"><span>待查询企业</span><span class="metric-mark orange"><i data-lucide="clock-3" aria-hidden="true"></i></span></div>
+              <div class="metric-value" id="pendingMetric">1</div>
+              <div class="metric-foot">点击查询获取企业信息</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-topline"><span>查询失败</span><span class="metric-mark purple"><i data-lucide="circle-alert" aria-hidden="true"></i></span></div>
+              <div class="metric-value" id="failedMetric">1</div>
+              <div class="metric-foot">可重试当前企业的查询</div>
+            </div>
+          </section>
+
+          <section class="table-panel" aria-label="企业列表">
+            <div class="table-toolbar">
+              <div>
+                <h2>企业列表</h2>
+                <span class="table-caption" id="tableCaption">共 3 家示例企业</span>
+              </div>
+              <div class="toolbar-controls">
+                <label class="search-field">
+                  <i class="search-glyph" data-lucide="search" aria-hidden="true"></i>
+                  <input id="searchInput" type="search" placeholder="企业名称 / 统一社会信用代码" aria-label="搜索企业" />
+                </label>
+                <button class="filter-button" id="filterButton" type="button" aria-expanded="false" aria-controls="filterPanel"><i data-lucide="sliders-horizontal" aria-hidden="true"></i><span>筛选</span><span class="filter-dot"></span></button>
+                <button class="icon-square" id="refreshButton" aria-label="刷新" type="button"><i data-lucide="refresh-cw" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="filter-panel" id="filterPanel" hidden>
+              <div class="filter-group">
+                <span class="filter-label">查询状态</span>
+                <button class="filter-chip selected" data-status="all" type="button">全部</button>
+                <button class="filter-chip" data-status="done" type="button">已完成</button>
+                <button class="filter-chip" data-status="pending" type="button">未查询</button>
+                <button class="filter-chip" data-status="failed" type="button">查询失败</button>
+              </div>
+              <div class="filter-group">
+                <span class="filter-label">所属园区</span>
+                <button class="filter-chip selected" data-park="all" type="button">全部园区</button>
+                <button class="filter-chip" data-park="海智园 A 区" type="button">海智园 A 区</button>
+                <button class="filter-chip" data-park="海智园 B 区" type="button">海智园 B 区</button>
+              </div>
+            </div>
+
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="check-col"><input id="selectAll" type="checkbox" aria-label="选择全部企业" /></th>
+                    <th>企业名称</th>
+                    <th>统一社会信用代码</th>
+                    <th>所属园区</th>
+                    <th>行业</th>
+                    <th>入驻时间</th>
+                    <th>查询状态</th>
+                    <th>最近查询</th>
+                    <th class="action-col">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="companyRows"></tbody>
+              </table>
+            </div>
+            <div class="table-footer">
+              <span>已选 <strong id="selectedCount">0</strong> 家企业</span>
+              <div class="pagination">
+                <span id="visibleCount">共 3 条</span>
+                <span class="page-button current">1</span>
+              </div>
+            </div>
+          </section>
+
+          <div class="page-note"><i data-lucide="info" aria-hidden="true"></i> 当前为样式演示，企业与查询结果均为虚构示例，尚未连接真实接口。</div>
+        </div>
+      </main>
+    </div>
+
+    <div class="drawer-layer" id="drawerLayer" aria-hidden="true">
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+      <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+        <div class="drawer-header">
+          <div>
+            <div class="drawer-kicker">企查查企业信息 · 示例</div>
+            <h2 id="drawerTitle">企业详情</h2>
+            <div class="drawer-subtitle" id="drawerSubtitle">—</div>
+          </div>
+          <button class="close-button" id="closeDrawer" aria-label="关闭企业详情" type="button"><i data-lucide="x" aria-hidden="true"></i></button>
+        </div>
+
+        <div class="drawer-summary">
+          <div class="summary-logo" id="drawerLogo">企</div>
+          <div class="summary-copy">
+            <strong id="drawerCompanyName">—</strong>
+            <span id="drawerCompanyCode">统一社会信用代码 —</span>
+          </div>
+          <span class="status-pill done" id="drawerStatus">已完成</span>
+        </div>
+
+        <div class="drawer-tabs" role="tablist" aria-label="企业信息分组">
+          <button class="drawer-tab active" role="tab" aria-selected="true" data-tab="base" type="button">基础档案</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="finance" type="button">营收税收</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="tech" type="button">知识产权</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="funding" type="button">行业融资</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="chain" type="button">企业图谱</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="raw" type="button">全部字段</button>
+        </div>
+
+        <div class="drawer-body" id="drawerBody" role="tabpanel" aria-live="polite"></div>
+        <div class="drawer-footer">
+          <span>最近查询：<strong id="drawerQueriedAt">—</strong></span>
+          <button class="button secondary small" id="requeryButton" type="button">重新查询</button>
+        </div>
+      </aside>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./vendor/lucide.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
