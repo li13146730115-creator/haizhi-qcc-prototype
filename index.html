@@ -61,8 +61,8 @@
         <div class="sidebar-footer">
           <div class="help-card">
             <div class="help-title">本次查询范围</div>
-            <div class="help-copy">基础档案、营收税收、知识产权、融资和企业图谱</div>
-            <span class="text-button">5 类内容 · 9 个接口</span>
+            <div class="help-copy">企业工商信息、专利技术、融资、企业图谱和风险预警</div>
+            <span class="text-button">5 类内容 · 10 个接口</span>
           </div>
           <div class="user-card">
             <div class="avatar">林</div>
@@ -94,7 +94,7 @@
             <div>
               <div class="eyebrow">园区企业管理</div>
               <h1>企业信息对接</h1>
-              <p>从企业列表查询企查查信息，按类别查看全部返回内容。</p>
+              <p>从企业列表查询企查查信息，按内容类别查看接口返回详情。</p>
             </div>
             <div class="heading-actions">
               <button class="button secondary" id="exportButton" type="button"><i data-lucide="download" aria-hidden="true"></i> 导出查询记录</button>
@@ -183,7 +183,7 @@
             </div>
           </section>
 
-          <div class="page-note"><i data-lucide="info" aria-hidden="true"></i> 当前为样式演示，企业与查询结果均为虚构示例，尚未连接真实接口。</div>
+          <div class="page-note"><i data-lucide="info" aria-hidden="true"></i> 当前为样式演示，列表用于发起查询；详情仅展示企查查接口返回的虚构示例，尚未连接真实接口。</div>
         </div>
       </main>
     </div>
@@ -210,17 +210,17 @@
         </div>
 
         <div class="drawer-tabs" role="tablist" aria-label="企业信息分组">
-          <button class="drawer-tab active" role="tab" aria-selected="true" data-tab="base" type="button">基础档案</button>
-          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="finance" type="button">营收税收</button>
-          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="tech" type="button">知识产权</button>
-          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="funding" type="button">行业融资</button>
-          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="chain" type="button">企业图谱</button>
+          <button class="drawer-tab active" role="tab" aria-selected="true" data-tab="business" type="button">企业工商信息</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="tech" type="button">专利技术</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="funding" type="button">融资信息</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="graph" type="button">企业图谱</button>
+          <button class="drawer-tab" role="tab" aria-selected="false" data-tab="risk" type="button">风险预警</button>
           <button class="drawer-tab" role="tab" aria-selected="false" data-tab="raw" type="button">全部字段</button>
         </div>
 
         <div class="drawer-body" id="drawerBody" role="tabpanel" aria-live="polite"></div>
         <div class="drawer-footer">
-          <span>最近查询：<strong id="drawerQueriedAt">—</strong></span>
+          <span>企查查查询时间：<strong id="drawerQueriedAt">—</strong></span>
           <button class="button secondary small" id="requeryButton" type="button">重新查询</button>
         </div>
       </aside>
